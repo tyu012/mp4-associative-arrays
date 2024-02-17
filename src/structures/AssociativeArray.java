@@ -76,7 +76,18 @@ public class AssociativeArray<K, V> {
    * get(key) will return value.
    */
   public void set(K key, V value) throws NullKeyException {
-    // STUB
+    try {
+      // Try to overwrite value associated with existing key
+      int keyIndex = find(key);
+      pairs[keyIndex].value = value; 
+    } catch (KeyNotFoundException knf) {
+      // If key not found, add new key to list.
+      if (size == pairs.length) {
+        expand();
+      }
+      pairs[size] = new KVPair<K, V>(key, value);
+      size++;
+    }
   } // set(K,V)
 
   /**
@@ -128,6 +139,7 @@ public class AssociativeArray<K, V> {
   /**
    * Find the index of the first entry in `pairs` that contains key.
    * If no such entry is found, throws an exception.
+   * An entry with key must be stored in [0, size) to be found.
    */
   public int find(K key) throws KeyNotFoundException {
     for (int i = 0; i < size(); i++) {
