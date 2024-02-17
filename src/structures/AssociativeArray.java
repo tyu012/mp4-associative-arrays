@@ -107,7 +107,15 @@ public class AssociativeArray<K, V> {
    * return false for the null key.
    */
   public boolean hasKey(K key) {
-    return false; // STUB
+    if (key.equals(null)) {
+      return false;
+    }
+    try {
+      find(key);
+    } catch (KeyNotFoundException knf) {
+      return false;
+    }
+    return true;
   } // hasKey(K)
 
   /**
