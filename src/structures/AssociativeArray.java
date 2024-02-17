@@ -130,7 +130,7 @@ public class AssociativeArray<K, V> {
    * If no such entry is found, throws an exception.
    */
   public int find(K key) throws KeyNotFoundException {
-    for (int i = 0; i < pairs.length; i++) {
+    for (int i = 0; i < size(); i++) {
       if (pairs[i].key.equals(key)) {
         return i;
       }
