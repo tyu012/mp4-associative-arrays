@@ -64,7 +64,19 @@ public class AssociativeArray<K, V> {
    * Convert the array to a string.
    */
   public String toString() {
-    return "{}"; // STUB
+    if (size == 0) {
+      return "{}";
+    }
+
+    String ret = "{ ";
+    for (int i = 0; i < size; i++) {
+      KVPair<K, V> pair = pairs[i];
+      ret += pair.key.toString() + ": " + pair.value.toString();
+      if (i < size - 1) {
+        ret += ", ";
+      }
+    }
+    return ret + " }";
   } // toString()
 
   // +----------------+----------------------------------------------
@@ -76,6 +88,10 @@ public class AssociativeArray<K, V> {
    * get(key) will return value.
    */
   public void set(K key, V value) throws NullKeyException {
+    if (key.equals(null)) {
+      throw new NullKeyException();
+    }
+
     try {
       // Try to overwrite value associated with existing key
       int keyIndex = find(key);
@@ -158,6 +174,9 @@ public class AssociativeArray<K, V> {
    * An entry with key must be stored in [0, size) to be found.
    */
   public int find(K key) throws KeyNotFoundException {
+    if (key.equals(null)) {
+      throw new KeyNotFoundException();
+    }
     for (int i = 0; i < size(); i++) {
       if (pairs[i].key.equals(key)) {
         return i;
