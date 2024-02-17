@@ -124,7 +124,14 @@ public class AssociativeArray<K, V> {
    * in the associative array, does nothing.
    */
   public void remove(K key) {
-    // STUB
+    try {
+      int keyIndex = find(key);
+      pairs[keyIndex] = pairs[size - 1];
+      pairs[size - 1] = null;
+      size--;
+    } catch (KeyNotFoundException knf) {
+      return;
+    }
   } // remove(K)
 
   /**
