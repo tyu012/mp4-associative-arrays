@@ -98,7 +98,8 @@ public class AssociativeArray<K, V> {
    *                              appear in the associative array.
    */
   public V get(K key) throws KeyNotFoundException {
-    return null; // STUB
+    int keyIndex = find(key); // throws KeyNotFoundException
+    return pairs[keyIndex].value;
   } // get(K)
 
   /**
