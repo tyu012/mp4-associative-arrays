@@ -164,7 +164,7 @@ public class AssociativeArray<K, V> {
   /**
    * Expand the underlying array.
    */
-  public void expand() {
+  void expand() {
     this.pairs = java.util.Arrays.copyOf(this.pairs, this.pairs.length * 2);
   } // expand()
 
@@ -173,7 +173,7 @@ public class AssociativeArray<K, V> {
    * If no such entry is found, throws an exception.
    * An entry with key must be stored in [0, size) to be found.
    */
-  public int find(K key) throws KeyNotFoundException {
+  int find(K key) throws KeyNotFoundException {
     if (key.equals(null)) {
       throw new KeyNotFoundException();
     }
