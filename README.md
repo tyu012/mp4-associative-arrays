@@ -2,6 +2,14 @@ Mini-Project 4: Associative Arrays
 ==================================
 https://github.com/tyu012/mp4-associative-arrays
 
+## Changelog
+* Before submission of MP5 (3/12):
+  * implemented `clone` method in `AssociativeArray`
+* First resubmission of MP4 (4/13):
+  * changed `key.equals(null)` to `key == null` since a null pointer does not
+    have a `equals` method.
+  * submitted all files instead of just `AssociativeArray.java` and readme.
+
 ## Author
 Tim Yu
 
