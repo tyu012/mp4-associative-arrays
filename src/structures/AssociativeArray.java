@@ -97,7 +97,7 @@ public class AssociativeArray<K, V> {
    * get(key) will return value.
    */
   public void set(K key, V value) throws NullKeyException {
-    if (key.equals(null)) {
+    if (key == null) {
       throw new NullKeyException();
     }
 
@@ -132,7 +132,7 @@ public class AssociativeArray<K, V> {
    * return false for the null key.
    */
   public boolean hasKey(K key) {
-    if (key.equals(null)) {
+    if (key == null) {
       return false;
     }
     try {
@@ -183,7 +183,7 @@ public class AssociativeArray<K, V> {
    * An entry with key must be stored in [0, size) to be found.
    */
   int find(K key) throws KeyNotFoundException {
-    if (key.equals(null)) {
+    if (key == null) {
       throw new KeyNotFoundException();
     }
     for (int i = 0; i < size(); i++) {
